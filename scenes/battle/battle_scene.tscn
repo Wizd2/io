@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://3oapdcgtxe75"]
+
+[ext_resource type="PackedScene" uid="uid://dhpnfgs3twdpq" path="res://scenes/ui/h_pbar.tscn" id="1_3hov6"]
+[ext_resource type="Script" uid="uid://8r8a405j2bdp" path="res://scripts/battle/battle_scene.gd" id="1_6iigb"]
+
+[node name="BattleScene" type="Node2D"]
+script = ExtResource("1_6iigb")
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(100, 300)
+
+[node name="Label" type="Label" parent="Player"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Player"
+
+[node name="Enemy" type="Node2D" parent="."]
+position = Vector2(700, 300)
+
+[node name="Label" type="Label" parent="Enemy"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Enemy"
+horizontal_alignment = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/UI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Battle UI"
+
+[node name="PlayerHPBar" parent="CanvasLayer/UI" instance=ExtResource("1_3hov6")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+
+[node name="AnswerButton" type="Button" parent="CanvasLayer/UI"]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 451.0
+offset_right = 272.0
+offset_bottom = 491.0
+text = "Ответить"
